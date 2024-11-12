@@ -23,3 +23,23 @@ app.listen(PORT, () => {
 
 
 
+
+
+import { supabase } from 'config/supabase.config.js';
+
+
+app.get('/test', async (req, res) => {
+
+});
+
+let { data, error } = await supabase.from('songs').select('id, title')
+if (error) {
+    throw new Error(error.message);
+} else {
+    return data;
+}
+
+
+
+
+
