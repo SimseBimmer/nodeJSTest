@@ -1,4 +1,3 @@
-// controllers/song.controller.js
 import express from 'express';
 import { SongModel } from '../models/songModel.js';
 
@@ -22,6 +21,16 @@ SongController.get('/songs/:id', async (req, res) => {
       return res.status(404).send('Sang ikke fundet');
     }
     res.json(song);
+  } catch (error) {
+    res.status(500).send(`Error: ${error.message}`);
+  }
+});
+
+// Route for at oprette en ny sang
+SongController.post('/songs', async (req, res) => {
+  try {
+    const data = await SongModel.createRecord(req.body);
+    res.json(data);
   } catch (error) {
     res.status(500).send(`Error: ${error.message}`);
   }
