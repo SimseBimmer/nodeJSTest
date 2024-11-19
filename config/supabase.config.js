@@ -1,10 +1,13 @@
-// config/supabase.config.js
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 
-dotenv.config();  // Indlæs miljøvariabler fra .env filen
+dotenv.config();
 
-const supabaseUrl = process.env.SUPABASE_URL;  // URL til din Supabase-projekt
-const supabaseKey = process.env.SUPABASE_KEY;  // Anon API nøgle fra Supabase
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseKey);  // Opret Supabase klient
+// // Debugging: log URL og key
+// console.log('Supabase URL:', supabaseUrl);
+// console.log('Supabase Key:', supabaseKey);
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
